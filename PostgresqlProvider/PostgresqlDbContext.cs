@@ -6,13 +6,13 @@ namespace PostgresqlProvider;
 
 public class PostgresqlDbContext : DbContext
 {
-    public PostgresqlDbContext(DbContextOptions<PostgresqlDbContext> options) : base(options)
+    public PostgresqlDbContext()
     {
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Database=EFLargeDataDb;Username=postgres;Password=postgres");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=EFLargeDataDb;Username=postgres;Password=postgres");
     }
 
     public DbSet<TextTable2MB> TextTable2MB { get; set; } = null!;
@@ -25,9 +25,6 @@ public class PostgresqlDbContextDesignFactory : IDesignTimeDbContextFactory<Post
 {
     public PostgresqlDbContext CreateDbContext(string[] args)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<PostgresqlDbContext>();
-        optionsBuilder.UseNpgsql("Host=localhost;Database=EFLargeDataDb;Username=postgres;Password=postgres");
-
-        return new PostgresqlDbContext(optionsBuilder.Options);
+        return new PostgresqlDbContext();
     }
 }
