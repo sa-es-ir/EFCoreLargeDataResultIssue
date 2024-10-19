@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerProvider", "SqlServerProvider\SqlServerProvider.csproj", "{95A8EB12-A1F9-4FD0-AE1D-875BB30C6E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerProvider", "SqlServerProvider\SqlServerProvider.csproj", "{95A8EB12-A1F9-4FD0-AE1D-875BB30C6E9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgresqlProvider", "PostgresqlProvider\PostgresqlProvider.csproj", "{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgresqlProvider", "PostgresqlProvider\PostgresqlProvider.csproj", "{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C461AD45-BC8E-4628-B73B-3622D6EE1837}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
