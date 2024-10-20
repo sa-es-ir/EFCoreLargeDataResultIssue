@@ -12,6 +12,7 @@ namespace SqlServerProvider;
 [HideColumns(Column.RatioSD, Column.AllocRatio)]
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
+[ShortRunJob]
 public class EFBenchmark
 {
     private class Config : ManualConfig
