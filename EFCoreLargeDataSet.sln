@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerProvider", "SqlSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgresqlProvider", "PostgresqlProvider\PostgresqlProvider.csproj", "{BC1C6463-8D70-4A89-AD3C-62A8FFB515D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C461AD45-BC8E-4628-B73B-3622D6EE1837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{C461AD45-BC8E-4628-B73B-3622D6EE1837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlClientProvider", "SqlClientProvider\SqlClientProvider.csproj", "{828B10DE-20D4-4E13-A539-E80A3FC32B32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C461AD45-BC8E-4628-B73B-3622D6EE1837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828B10DE-20D4-4E13-A539-E80A3FC32B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828B10DE-20D4-4E13-A539-E80A3FC32B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828B10DE-20D4-4E13-A539-E80A3FC32B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828B10DE-20D4-4E13-A539-E80A3FC32B32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
