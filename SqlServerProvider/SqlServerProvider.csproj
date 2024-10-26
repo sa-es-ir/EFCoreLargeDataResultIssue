@@ -19,7 +19,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0-rc.2.24474.1" />
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" ExcludeAssets="All" />
+		<!--<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" ExcludeAssets="All" />-->
 	</ItemGroup>
 
 	<ItemGroup>
