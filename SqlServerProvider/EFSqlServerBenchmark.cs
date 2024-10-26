@@ -41,7 +41,7 @@ public class EFSqlServerBenchmark
     [BenchmarkCategory("2MB"), Benchmark(Baseline = true)]
     public async Task Async2MB()
     {
-        using var dbcontext = new SqlServerDbContext();
+        using var dbcontext = new SqlServerDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
 
         _ = await dbcontext.TextTable2MB.FirstOrDefaultAsync();
     }
@@ -49,7 +49,7 @@ public class EFSqlServerBenchmark
     [BenchmarkCategory("2MB"), Benchmark]
     public void Sync2MB()
     {
-        using var dbcontext = new SqlServerDbContext();
+        using var dbcontext = new SqlServerDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
 
         _ = dbcontext.TextTable2MB.FirstOrDefault();
     }
@@ -57,7 +57,7 @@ public class EFSqlServerBenchmark
     [BenchmarkCategory("5MB"), Benchmark(Baseline = true)]
     public async Task Async5MB()
     {
-        using var dbcontext = new SqlServerDbContext();
+        using var dbcontext = new SqlServerDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
 
         _ = await dbcontext.TextTable5MB.FirstOrDefaultAsync();
     }
@@ -65,7 +65,7 @@ public class EFSqlServerBenchmark
     [BenchmarkCategory("5MB"), Benchmark]
     public void Sync5MB()
     {
-        using var dbcontext = new SqlServerDbContext();
+        using var dbcontext = new SqlServerDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
 
         _ = dbcontext.TextTable5MB.FirstOrDefault();
     }
