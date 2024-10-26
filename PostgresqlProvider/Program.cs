@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
 using PostgresqlProvider;
 
-Console.WriteLine(BenchmarkRunner.Run<EFBenchmark>());
+Console.WriteLine(BenchmarkRunner.Run<EFPostgresBenchmark>());

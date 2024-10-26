@@ -13,7 +13,7 @@ namespace PostgresqlProvider;
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [ShortRunJob]
-public class EFBenchmark
+public class EFPostgresBenchmark
 {
     private class Config : ManualConfig
     {
@@ -28,6 +28,9 @@ public class EFBenchmark
     public async Task Setup()
     {
         var dbcontext = new PostgresqlDbContext();
+
+        await dbcontext.TextTable2MB.ExecuteDeleteAsync();
+        await dbcontext.TextTable2MB.ExecuteDeleteAsync();
 
         dbcontext.TextTable2MB.Add(new TextTable2MB { Text = new string('x', 1024 * 1024 * 2) });
         dbcontext.TextTable5MB.Add(new TextTable5MB { Text = new string('x', 1024 * 1024 * 5) });
@@ -66,20 +69,4 @@ public class EFBenchmark
 
         _ = dbcontext.TextTable5MB.FirstOrDefault();
     }
-
-    //[Benchmark]
-    //public async Task Async2MBPS()
-    //{
-    //    using var dbcontext = new TestDbContext("Server=localhost;Database=EFCoreLargeData;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
-
-    //    _ = await dbcontext.TextTable2MBs.FirstOrDefaultAsync();
-    //}
-
-    //[Benchmark]
-    //public void Sync2MBPS()
-    //{
-    //    using var dbcontext = new TestDbContext("Server=localhost;Database=EFCoreLargeData;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
-
-    //    _ = dbcontext.TextTable2MBs.FirstOrDefault();
-    //}
 }
