@@ -12,7 +12,7 @@ namespace SqlClientProvider;
 [CategoriesColumn]
 [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 [ShortRunJob]
-public class Benchmarks
+public class SqlClientBenchmarks
 {
     const string ConnectionString = "Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True";
 

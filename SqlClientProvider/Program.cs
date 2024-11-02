@@ -2,4 +2,4 @@
 using BenchmarkDotNet.Running;
 using SqlClientProvider;
 
-BenchmarkRunner.Run<Benchmarks>();
+BenchmarkRunner.Run<SqlClientBenchmarks>();
