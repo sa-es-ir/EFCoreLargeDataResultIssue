@@ -25,25 +25,26 @@ public class SqlClientBenchmarks
         }
     }
 
-    //[GlobalSetup]
-    //public void Setup()
-    //{
-    //    using var conn = new SqlConnection(ConnectionString);
-    //    conn.Open();
+    [GlobalSetup]
+    public void Setup()
+    {
+        using var conn = new SqlConnection(ConnectionString);
+        conn.Open();
 
-    //    using var cmd = conn.CreateCommand();
-    //    cmd.CommandText = @"
-    //IF OBJECT_ID('dbo.data', 'U') IS NOT NULL
-    //DROP TABLE data; 
-    //CREATE TABLE data (id INT, foo VARBINARY(MAX))
-    //";
-    //    cmd.ExecuteNonQuery();
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+            IF OBJECT_ID('dbo.TextTable2MB', 'U') IS NULL
+                CREATE TABLE data (Id INT, Text NVARCHAR(MAX))
+            IF OBJECT_ID('dbo.TextTable5MB', 'U') IS NULL
+                CREATE TABLE data (Id INT, Text NVARCHAR(MAX)    
+        ";
+        cmd.ExecuteNonQuery();
 
-    //    cmd.CommandText = "INSERT INTO data (id, foo) VALUES (@id, @foo)";
-    //    cmd.Parameters.AddWithValue("id", 1);
-    //    cmd.Parameters.AddWithValue("foo", new byte[1024 * 1024 * 10]);
-    //    cmd.ExecuteNonQuery();
-    //}
+        cmd.CommandText = "INSERT INTO data (id, foo) VALUES (@id, @foo)";
+        cmd.Parameters.AddWithValue("id", 1);
+        cmd.Parameters.AddWithValue("foo", new byte[1024 * 1024 * 10]);
+        cmd.ExecuteNonQuery();
+    }
 
     [BenchmarkCategory("2MB"), Benchmark(Baseline = true)]
     public async Task Async2MB()
