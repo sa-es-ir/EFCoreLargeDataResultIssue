@@ -34,15 +34,18 @@ public class SqlClientBenchmarks
         using var cmd = conn.CreateCommand();
         cmd.CommandText = @"
             IF OBJECT_ID('dbo.TextTable2MB', 'U') IS NULL
-                CREATE TABLE data (Id INT, Text NVARCHAR(MAX))
+                CREATE TABLE TextTable2MB (Id INT IDENTITY(1,1) NOT NULL, Text NVARCHAR(MAX) NOT NULL)
             IF OBJECT_ID('dbo.TextTable5MB', 'U') IS NULL
-                CREATE TABLE data (Id INT, Text NVARCHAR(MAX)    
+                CREATE TABLE TextTable5MB (Id INT IDENTITY(1,1) NOT NULL, Text NVARCHAR(MAX) NOT NULL)    
         ";
         cmd.ExecuteNonQuery();
 
-        cmd.CommandText = "INSERT INTO data (id, foo) VALUES (@id, @foo)";
-        cmd.Parameters.AddWithValue("id", 1);
-        cmd.Parameters.AddWithValue("foo", new byte[1024 * 1024 * 10]);
+        cmd.CommandText = "INSERT INTO TextTable2MB (Text) VALUES (@text)";
+        cmd.Parameters.AddWithValue("text", new string('x', 1024 * 1024 * 2));
+        cmd.ExecuteNonQuery();
+
+        cmd.CommandText = "INSERT INTO TextTable5MB (Text) VALUES (@text)";
+        cmd.Parameters.AddWithValue("text", new string('x', 1024 * 1024 * 5));
         cmd.ExecuteNonQuery();
     }
 
