@@ -43,7 +43,9 @@ public class EFSqlServerBenchmark
     {
         using var dbcontext = new SqlServerDbContext();
 
-        _ = await dbcontext.TextTable2MB.FirstOrDefaultAsync();
+        _ = await dbcontext
+            .TextTable2MB
+            .FirstOrDefaultAsync();
     }
 
     [BenchmarkCategory("2MB"), Benchmark]
@@ -51,7 +53,9 @@ public class EFSqlServerBenchmark
     {
         using var dbcontext = new SqlServerDbContext();
 
-        _ = dbcontext.TextTable2MB.FirstOrDefault();
+        _ = dbcontext
+            .TextTable2MB
+            .FirstOrDefault();
     }
 
     [BenchmarkCategory("5MB"), Benchmark(Baseline = true)]
@@ -59,7 +63,9 @@ public class EFSqlServerBenchmark
     {
         using var dbcontext = new SqlServerDbContext();
 
-        _ = await dbcontext.TextTable5MB.FirstOrDefaultAsync();
+        _ = await dbcontext
+            .TextTable5MB
+            .FirstOrDefaultAsync();
     }
 
     [BenchmarkCategory("5MB"), Benchmark]
@@ -67,22 +73,8 @@ public class EFSqlServerBenchmark
     {
         using var dbcontext = new SqlServerDbContext();
 
-        _ = dbcontext.TextTable5MB.FirstOrDefault();
+        _ = dbcontext
+            .TextTable5MB
+            .FirstOrDefault();
     }
-
-    //[Benchmark]
-    //public async Task Async2MBPS()
-    //{
-    //    using var dbcontext = new TestDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
-
-    //    _ = await dbcontext.TextTable2MBs.FirstOrDefaultAsync();
-    //}
-
-    //[Benchmark]
-    //public void Sync2MBPS()
-    //{
-    //    using var dbcontext = new TestDbContext("Server=localhost;Database=EFLargeDataDb;user id=sa;password=P@ssw0rd.123!;TrustServerCertificate=True;Packet Size=32767");
-
-    //    _ = dbcontext.TextTable2MBs.FirstOrDefault();
-    //}
 }
