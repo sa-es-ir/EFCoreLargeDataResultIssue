@@ -16,7 +16,6 @@ public class SqlServerDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(_connectionString);
-        optionsBuilder.LogTo(System.Console.WriteLine);
     }
 
     public DbSet<TextTable2MB> TextTable2MB { get; set; } = null!;
