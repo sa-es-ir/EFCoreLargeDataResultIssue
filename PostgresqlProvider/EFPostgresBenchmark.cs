@@ -30,7 +30,7 @@ public class EFPostgresBenchmark
         var dbcontext = new PostgresqlDbContext();
 
         await dbcontext.TextTable2MB.ExecuteDeleteAsync();
-        await dbcontext.TextTable2MB.ExecuteDeleteAsync();
+        await dbcontext.TextTable5MB.ExecuteDeleteAsync();
 
         dbcontext.TextTable2MB.Add(new TextTable2MB { Text = new string('x', 1024 * 1024 * 2) });
         dbcontext.TextTable5MB.Add(new TextTable5MB { Text = new string('x', 1024 * 1024 * 5) });
