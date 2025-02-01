@@ -40,6 +40,9 @@ public class SqlClientBenchmarks
         ";
         cmd.ExecuteNonQuery();
 
+        cmd.CommandText = "DELETE TextTable2MB; DELETE TextTable5MB;";
+        cmd.ExecuteNonQuery();
+
         cmd.CommandText = "INSERT INTO TextTable2MB (Text) VALUES (@text)";
         cmd.Parameters.AddWithValue("text", new string('x', 1024 * 1024 * 2));
         cmd.ExecuteNonQuery();
